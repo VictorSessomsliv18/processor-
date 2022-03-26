@@ -1,0 +1,26 @@
+[package]
+name = "miden-processor"
+version = "0.1.0"
+description = "Miden VM processor"
+authors = ["miden contributors"]
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/maticnetwork/miden"
+categories = ["emulators", "no-std"]
+keywords = ["miden", "virtual-machine"]
+edition = "2018"
+
+[lib]
+bench = false
+doctest = false
+
+[features]
+default = ["std"]
+std = ["vm-core/std", "winterfell/std"]
+
+[dependencies]
+vm-core = { package = "miden-core", path = "../core", version = "0.1", default-features = false }
+winterfell = { package = "winter-prover", version = "0.2", default-features = false }
+
+[dev-dependencies]
+rand-utils = { package = "winter-rand-utils", version = "0.2" }
